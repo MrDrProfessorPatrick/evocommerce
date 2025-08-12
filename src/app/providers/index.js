@@ -1,9 +1,20 @@
 "use client";
 
 import React, { createContext } from "react";
+import { useState } from "react";
 
-const Context = createContext({});
+export const Context = createContext();
 
 export default function Provider({ children }) {
-  return <Context.Provider value="dark">{children}</Context.Provider>;
+  const [goodsLayout, setGoodsLayout] = useState({ goodsCard: "medium" });
+
+  function changeGoodsLayout(newLayout) {
+    setGoodsLayout({ goodsCard: newLayout });
+  }
+  console.log("goodsLayout", goodsLayout);
+  return (
+    <Context.Provider value={{ goodsLayout, changeGoodsLayout }}>
+      {children}
+    </Context.Provider>
+  );
 }
