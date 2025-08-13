@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "@/app/providers";
+import BackButton from "./backButton";
 
 export default function GoodPageFull() {
   const { id } = useParams();
@@ -29,6 +30,7 @@ export default function GoodPageFull() {
 
   return (
     <div className="p-4">
+      <BackButton link="/" />
       <Image
         src={thumbnail}
         alt={title}
