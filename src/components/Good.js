@@ -10,7 +10,6 @@ export default function Good({ id, title, price, thumbnail }) {
   const { addToCart } = useContext(Context);
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
-
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
@@ -18,13 +17,20 @@ export default function Good({ id, title, price, thumbnail }) {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    e.stopPropagation();
+    console.log("Adding to cart:", id);
     addToCart(id);
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <Link href={`/gooddescription/${id}`} className="border p-4">
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      onPointerDown={() => setIsDragging(false)}
+      onPointerMove={() => setIsDragging(true)}
+      className="border p-4"
+    >
+      <Link href={`/gooddescription/${id}`}>
         <Image
           src={thumbnail}
           alt={title}
@@ -33,9 +39,11 @@ export default function Good({ id, title, price, thumbnail }) {
           className="mb-2"
         />
       </Link>
-      <h2 className="text-xl font-bold">{title}</h2>
-      <div className="flex justify-between items-center w-full">
-        <span>{price}</span>
+      <div {...listeners} className="cursor-grab">
+        <h2 className="text-xl font-bold">{title}</h2>
+        <div className="flex justify-between items-center w-full">
+          <span className="text-lg font-semibold ml-1">{price} USD</span>
+        </div>
       </div>
       <button
         onClick={handleAddToCart}
