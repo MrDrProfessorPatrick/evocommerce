@@ -7,7 +7,7 @@ export default function SortButtons() {
 
   return (
     <div className="flex space-x-2">
-      <span>Sort by price:</span>
+      <span className="flex items-center pr-4">Sort by price:</span>
       <button
         className={` ${
           sortBy === "cheaper"
