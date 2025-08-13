@@ -6,7 +6,7 @@ export const Context = createContext();
 
 export default function Provider({ children }) {
   const [goods, setGoods] = useState([]);
-  const [goodById, setGoodById] = useState(null);
+  const [goodById, setGoodById] = useState();
   const [goodsLayout, setGoodsLayout] = useState({ view: "medium" });
   const [cart, setCart] = useState([]);
 
