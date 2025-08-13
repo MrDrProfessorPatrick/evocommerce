@@ -13,7 +13,6 @@ export default function GoodPageFull() {
   useEffect(() => {
     if (id) {
       const good = findGoodById(id);
-      console.log("Good found:", good);
       setGood(good);
     }
   }, [id, findGoodById]);
@@ -29,17 +28,27 @@ export default function GoodPageFull() {
   const { title, description, thumbnail } = good;
 
   return (
-    <div className="p-4">
-      <BackButton link="/" />
-      <Image
-        src={thumbnail}
-        alt={title}
-        width={400}
-        height={400}
-        className="mb-4"
-      />
-      <h1 className="text-2xl font-bold mb-2">{title}</h1>
-      <p>{description}</p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800">
+      <div className="w-full ml-12 mt-5 flex justify-start">
+        <BackButton link="/" />
+      </div>
+      <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-xl shadow-lg mt-14">
+        <div className="flex justify-center mb-6">
+          <Image
+            src={thumbnail}
+            alt={title}
+            width={400}
+            height={400}
+            className="rounded-lg shadow-md object-cover"
+          />
+        </div>
+
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-gray-800">
+          {title}
+        </h1>
+
+        <p className="text-gray-600 leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 }
