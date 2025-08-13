@@ -5,7 +5,7 @@ import { Context } from "@/app/providers";
 import GoodsList from "./GoodsList";
 
 export default function GoodsListContainer() {
-  const { goods, goodsLayout } = useContext(Context);
+  const { goods, goodsLayout, changeGoodsOrder } = useContext(Context);
   const [gridOption, setGridOption] = useState("grid-cols-2");
 
   useEffect(() => {
@@ -20,5 +20,11 @@ export default function GoodsListContainer() {
     }
   }, [goodsLayout]);
 
-  return <GoodsList goods={goods} view={gridOption} />;
+  return (
+    <GoodsList
+      goods={goods}
+      view={gridOption}
+      changeGoodsOrder={changeGoodsOrder}
+    />
+  );
 }

@@ -9,23 +9,23 @@ import {
 } from "@dnd-kit/sortable";
 import Good from "./Good";
 
-export default function GoodsList({ goods, view }) {
-  const [items, setItems] = useState(goods.map((g) => g.id));
+export default function GoodsList({ goods, view, changeGoodsOrder }) {
+  const goodsIds = goods.map((good) => good.id);
+  console.log("items", goodsIds);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {
-      setItems((prev) => {
-        const oldIndex = prev.indexOf(active.id);
-        const newIndex = prev.indexOf(over.id);
-        return arrayMove(prev, oldIndex, newIndex);
-      });
+      const oldIndex = goodsIds.indexOf(active.id);
+      const newIndex = goodsIds.indexOf(over.id);
+      let changed = arrayMove(goodsIds, oldIndex, newIndex);
+      changeGoodsOrder(changed);
     }
   };
 
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-      <SortableContext items={items} strategy={rectSortingStrategy}>
+      <SortableContext items={goodsIds} strategy={rectSortingStrategy}>
         <div className={`grid ${view} gap-4`}>
           {goods &&
             goods.map((good) => (

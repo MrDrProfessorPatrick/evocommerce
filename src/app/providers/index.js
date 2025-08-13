@@ -30,6 +30,21 @@ export default function Provider({ children }) {
     return found;
   }
 
+  function changeGoodsOrder(newOrder) {
+    let resultOrder = [];
+
+    for (let i = 0; i < newOrder.length; i++) {
+      for (let j = 0; j < goods.length; j++) {
+        if (goods[j].id === newOrder[i]) {
+          resultOrder.push(goods[j]);
+          break;
+        }
+      }
+    }
+    console.log("resultOrder", resultOrder);
+    setGoods(resultOrder);
+  }
+
   function changeGoodsLayout(newLayout) {
     setGoodsLayout({ view: newLayout });
   }
@@ -50,6 +65,7 @@ export default function Provider({ children }) {
         changeGoodsLayout,
         findGoodById,
         goodById,
+        changeGoodsOrder,
       }}
     >
       {children}
