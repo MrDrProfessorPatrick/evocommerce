@@ -1,6 +1,4 @@
 "use client";
-import { useContext, useState, useEffect } from "react";
-import { Context } from "@/app/providers";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -11,7 +9,6 @@ import Good from "./Good";
 
 export default function GoodsList({ goods, view, changeGoodsOrder }) {
   const goodsIds = goods.map((good) => good.id);
-  console.log("view:", view);
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {

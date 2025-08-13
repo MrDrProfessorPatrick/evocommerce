@@ -17,7 +17,6 @@ export default function Good({ id, title, price, thumbnail }) {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    console.log("Adding to cart:", id);
     addToCart(id);
   };
 

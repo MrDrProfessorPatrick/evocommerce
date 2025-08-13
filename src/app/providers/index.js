@@ -3,7 +3,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
-
+// context provider here hold data for goods, cart, and UI state, and pass it to all other components
 export default function Provider({ children }) {
   const [goods, setGoods] = useState([]);
   const [goodById, setGoodById] = useState();
@@ -42,7 +42,6 @@ export default function Provider({ children }) {
         }
       }
     }
-    console.log("resultOrder", resultOrder);
     setGoods(resultOrder);
   }
 
@@ -64,7 +63,6 @@ export default function Provider({ children }) {
 
   function addToCart(goodId) {
     let goodAdded = goods.find((item) => item.id === goodId);
-    console.log("goodAdded", goodAdded);
     setCart((prevCart) => [...prevCart, goodAdded]);
   }
 
