@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import ChangeGoodsLayoutButtons from "@/components/ChangeGoodsLayoutButtons";
 import GoodsListContainer from "@/components/GoodsListContainer";
+import SortButtons from "@/components/SortButtons";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
             Cart
           </button>
         </Link>
+        <SortButtons />
         <ChangeGoodsLayoutButtons />
       </div>
       <GoodsListContainer />

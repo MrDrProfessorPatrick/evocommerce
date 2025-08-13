@@ -6,7 +6,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { Context } from "@/app/providers";
 import { CSS } from "@dnd-kit/utilities";
 
-export default function Good({ id, title, thumbnail }) {
+export default function Good({ id, title, price, thumbnail }) {
   const { addToCart } = useContext(Context);
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
@@ -34,6 +34,9 @@ export default function Good({ id, title, thumbnail }) {
         />
       </Link>
       <h2 className="text-xl font-bold">{title}</h2>
+      <div className="flex justify-between items-center w-full">
+        <span>{price}</span>
+      </div>
       <button
         onClick={handleAddToCart}
         className="mt-3 bg-green-300 text-white px-4 py-2 rounded-lg font-semibold transform transition duration-200 hover:bg-green-600 hover:scale-105 shadow-md hover:shadow-lg hover:cursor-pointer z-10"

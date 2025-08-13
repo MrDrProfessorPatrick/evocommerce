@@ -8,6 +8,7 @@ export default function Provider({ children }) {
   const [goods, setGoods] = useState([]);
   const [goodById, setGoodById] = useState();
   const [goodsLayout, setGoodsLayout] = useState({ view: "medium" });
+  const [sortBy, setSortBy] = useState("default");
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -49,6 +50,18 @@ export default function Provider({ children }) {
     setGoodsLayout({ view: newLayout });
   }
 
+  function sortByPrice(order) {
+    setSortBy(order);
+    const sorted = [...goods].sort((a, b) => {
+      if (order === "cheaper") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+    setGoods(sorted);
+  }
+
   function addToCart(goodId) {
     let goodAdded = goods.find((item) => item.id === goodId);
     console.log("goodAdded", goodAdded);
@@ -66,6 +79,8 @@ export default function Provider({ children }) {
         findGoodById,
         goodById,
         changeGoodsOrder,
+        sortByPrice,
+        sortBy,
       }}
     >
       {children}

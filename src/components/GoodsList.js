@@ -11,8 +11,7 @@ import Good from "./Good";
 
 export default function GoodsList({ goods, view, changeGoodsOrder }) {
   const goodsIds = goods.map((good) => good.id);
-  console.log("items", goodsIds);
-
+  console.log("goods", goods);
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {
@@ -31,6 +30,7 @@ export default function GoodsList({ goods, view, changeGoodsOrder }) {
             goods.map((good) => (
               <Good
                 key={good.id}
+                price={good.price}
                 id={good.id}
                 title={good.title}
                 description={good.description}
