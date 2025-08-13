@@ -28,8 +28,8 @@ export default function GoodPageFull() {
   const { title, description, thumbnail } = good;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800">
-      <div className="w-full ml-12 mt-5 flex justify-start">
+    <div className="flex flex-col items-center mt-0 min-h-screen bg-gray-800">
+      <div className="w-full mt-6 ml-12 h-15 flex justify-start">
         <BackButton link="/" />
       </div>
       <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-xl shadow-lg mt-14">
