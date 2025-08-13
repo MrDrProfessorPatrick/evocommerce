@@ -1,5 +1,5 @@
 "use client";
-
+import mockedGoods from "../mockedGoods.json";
 import React, { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
@@ -14,9 +14,10 @@ export default function Provider({ children }) {
   useEffect(() => {
     const fetchGoods = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
-        const data = await response.json();
-        setGoods(data.products || []);
+        // const response = await fetch("https://dummyjson.com/products");
+        // const data = await response.json();
+        // mockedGoods.json file is used instead
+        setGoods(mockedGoods.products || []);
       } catch (error) {
         console.error("Error fetching goods:", error);
       }

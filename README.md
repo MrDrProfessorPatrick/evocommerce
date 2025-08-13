@@ -4,6 +4,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+Run the project you need to make npm i and then npm run dev.
+Project is simple web app e-comerce shop.
+
 ```bash
 npm run dev
 # or
