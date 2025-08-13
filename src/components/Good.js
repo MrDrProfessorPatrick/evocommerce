@@ -28,7 +28,7 @@ export default function Good({ id, title, price, thumbnail }) {
       {...attributes}
       onPointerDown={() => setIsDragging(false)}
       onPointerMove={() => setIsDragging(true)}
-      className="border p-4"
+      className="border p-4 rounded-lg bg-gray-400 hover:bg-gray-200 shadow-md hover:shadow-lg flex flex-col items-center justify-between h-full group"
     >
       <Link href={`/gooddescription/${id}`}>
         <Image
@@ -39,10 +39,12 @@ export default function Good({ id, title, price, thumbnail }) {
           className="mb-2"
         />
       </Link>
-      <div {...listeners} className="cursor-grab">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <div className="flex justify-between items-center w-full">
-          <span className="text-lg font-semibold ml-1">{price} USD</span>
+      <div {...listeners} className="cursor-grab w-full text-center">
+        <h2 className="text-2xl font-bold group-hover:text-black">{title}</h2>
+        <div className="flex justify-center w-full">
+          <span className="text-lg font-semibold ml-1 group-hover:text-black">
+            {price} USD
+          </span>
         </div>
       </div>
       <button
