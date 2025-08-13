@@ -11,7 +11,7 @@ import Good from "./Good";
 
 export default function GoodsList({ goods, view, changeGoodsOrder }) {
   const goodsIds = goods.map((good) => good.id);
-  console.log("goods", goods);
+
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {
@@ -25,7 +25,7 @@ export default function GoodsList({ goods, view, changeGoodsOrder }) {
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <SortableContext items={goodsIds} strategy={rectSortingStrategy}>
-        <div className={`grid ${view} gap-4`}>
+        <div className={`grid ${view} gap-4 m-5`}>
           {goods &&
             goods.map((good) => (
               <Good

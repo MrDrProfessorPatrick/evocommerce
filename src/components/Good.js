@@ -40,7 +40,9 @@ export default function Good({ id, title, price, thumbnail }) {
         />
       </Link>
       <div {...listeners} className="cursor-grab w-full text-center">
-        <h2 className="text-2xl font-bold group-hover:text-black">{title}</h2>
+        <h2 className="text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl font-bold group-hover:text-black">
+          {title}
+        </h2>
         <div className="flex justify-center w-full">
           <span className="text-lg font-semibold ml-1 group-hover:text-black">
             {price} USD

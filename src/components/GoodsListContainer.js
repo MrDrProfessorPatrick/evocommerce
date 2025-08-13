@@ -13,7 +13,7 @@ export default function GoodsListContainer() {
       setGridOption("grid-cols-2");
     }
     if (goodsLayout?.view === "small") {
-      setGridOption("grid-cols-1");
+      setGridOption("grid-cols-1 w-full");
     }
     if (goodsLayout?.view === "big") {
       setGridOption("grid-cols-4");
