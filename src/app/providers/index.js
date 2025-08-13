@@ -8,6 +8,7 @@ export default function Provider({ children }) {
   const [goods, setGoods] = useState([]);
   const [goodById, setGoodById] = useState(null);
   const [goodsLayout, setGoodsLayout] = useState({ view: "medium" });
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchGoods = async () => {
@@ -19,7 +20,6 @@ export default function Provider({ children }) {
         console.error("Error fetching goods:", error);
       }
     };
-
     fetchGoods();
   }, []);
 
@@ -34,10 +34,16 @@ export default function Provider({ children }) {
     setGoodsLayout({ view: newLayout });
   }
 
+  function addToCart(good) {
+    setCart((prevCart) => [...prevCart, good]);
+  }
+
   return (
     <Context.Provider
       value={{
         goods,
+        cart,
+        addToCart,
         goodsLayout,
         changeGoodsLayout,
         findGoodById,

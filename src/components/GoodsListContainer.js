@@ -1,9 +1,10 @@
 "use client";
+
 import { useContext, useState, useEffect } from "react";
 import { Context } from "@/app/providers";
-import Good from "./Good";
+import GoodsList from "./GoodsList";
 
-export default function GoodsList() {
+export default function GoodsListContainer() {
   const { goods, goodsLayout } = useContext(Context);
   console.log("goods", goods);
   const [gridOption, setGridOption] = useState("grid-cols-2");
@@ -20,18 +21,5 @@ export default function GoodsList() {
     }
   }, [goodsLayout]);
 
-  return (
-    <div className={`grid ${gridOption} gap-4`}>
-      {goods &&
-        goods.map((good) => (
-          <Good
-            key={good.id}
-            id={good.id}
-            title={good.title}
-            description={good.description}
-            thumbnail={good.thumbnail}
-          />
-        ))}
-    </div>
-  );
+  return <GoodsList goods={goods} view={gridOption} />;
 }
