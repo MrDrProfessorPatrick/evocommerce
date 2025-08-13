@@ -1,14 +1,9 @@
 "use client";
-import GoodsList from "./GoodsListContainer";
-import { useContext } from "react";
-import { Context } from "@/app/providers";
+import GoodsList from "./GoodsList";
 
-export default function Cart() {
-  const { cart } = useContext(Context);
-
+export default function Cart({ cart }) {
   return (
     <div>
-      <h2>Shopping Cart</h2>
       {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (

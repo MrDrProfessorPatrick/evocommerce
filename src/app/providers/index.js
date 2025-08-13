@@ -34,8 +34,10 @@ export default function Provider({ children }) {
     setGoodsLayout({ view: newLayout });
   }
 
-  function addToCart(good) {
-    setCart((prevCart) => [...prevCart, good]);
+  function addToCart(goodId) {
+    let goodAdded = goods.find((item) => item.id === goodId);
+    console.log("goodAdded", goodAdded);
+    setCart((prevCart) => [...prevCart, goodAdded]);
   }
 
   return (

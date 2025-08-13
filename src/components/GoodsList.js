@@ -4,8 +4,6 @@ import { Context } from "@/app/providers";
 import Good from "./Good";
 
 export default function GoodsList({ goods, view }) {
-  console.log("goods", goods);
-
   return (
     <div className={`grid ${view} gap-4`}>
       {goods &&

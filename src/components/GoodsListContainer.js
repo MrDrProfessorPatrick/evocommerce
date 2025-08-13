@@ -6,7 +6,6 @@ import GoodsList from "./GoodsList";
 
 export default function GoodsListContainer() {
   const { goods, goodsLayout } = useContext(Context);
-  console.log("goods", goods);
   const [gridOption, setGridOption] = useState("grid-cols-2");
 
   useEffect(() => {
