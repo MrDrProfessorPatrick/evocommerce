@@ -1,4 +1,7 @@
+"use client";
 import GoodsList from "./GoodsListContainer";
+import { useContext } from "react";
+import { Context } from "@/app/providers";
 
 export default function Cart() {
   const { cart } = useContext(Context);
